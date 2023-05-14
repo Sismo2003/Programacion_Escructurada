@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include "structs.h"
-/*
-void datashowall(){
+void datashowall(struct ){
 
 }
+/*
 
 void datashow(){
 
@@ -17,11 +17,20 @@ void search(){
 
 }
 
-
-void delete(){
+*/
+void delete(int *policyType){
+    int ans = 0;
+    printf("\nDiguite el numero de folio que dese eliminar: ");
+    scanf("%d",&ans);
+    if(policyType[ans]==0){
+        printf("Este folio ya no existe.");
+    }else{
+        policyType[ans]=0;
+        printf("\nEl folio ha sido eliminado con un exito del 100!");
+    }
 
 }
-*/
+
 int sort(struct policy *p, int beging, int end, int search){
     int half =(beging + end)/2;
     if(search == half){
