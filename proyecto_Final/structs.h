@@ -18,8 +18,7 @@ struct addres
     char streetNumber[5];
     char innerNumber[5];
 };
-struct person
-{
+struct person{
     char name[15];
     char lastname[15];
     struct date birth;
@@ -29,8 +28,7 @@ struct person
     char contactMail[20];
 };
 
-struct policyGeneral
-{
+struct policyGeneral{
     float deductible;
     char coverage[15];
     float price;
@@ -38,8 +36,7 @@ struct policyGeneral
     struct date vigency;
 };
 
-struct policyOwner
-{
+struct policyOwner{
     char name[15];
     char lastname[15];
     char contactPhone[10];
@@ -47,39 +44,33 @@ struct policyOwner
     struct addres addres;
 };
 
-struct policyCar
-{
+struct policyCar{
     char model[10];
     char brand[10];
     int serialNumber;
     int year;
 };
 
-struct policyBuissnes
-{
+struct policyBuissnes{
     struct addres addresInsured;
 };
-struct policyHome
-{
+struct policyHome{
     struct addres addresInsured;
 };
 
-struct policyLife
-{
+struct policyLife{
     struct person beneficiary;
     struct person insured;
 };
 
-union policyType
-{
+union policyType{
     struct policyBuissnes Buissnes;
     struct policyHome Home;
     struct policyCar Car;
     struct policyLife Life;
 };
 
-struct policy
-{
+struct policy{
     int id;
     union policyType type;
     struct policyGeneral genaralData;
