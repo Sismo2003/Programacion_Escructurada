@@ -320,6 +320,8 @@ void search(){
 }
 
 */
+
+
 void delete(int *policyType){
     int ans = 0;
     printf("\nDiguite el numero de folio que dese eliminar: ");
