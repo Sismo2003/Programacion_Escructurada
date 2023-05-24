@@ -94,7 +94,7 @@ void datashow(struct policy *p , int *id , int *policyType ){
             int mod =0;
 
             printf("\nQue elemento desea modificar? \n");
-            printf("\n1.Nombre de la poliza\n2.Apellido de la poliza\n3.Numero de contacto de la poliza\n4.Correo Electronico de la poliza\n5.Dirrecion del duenho de la poliza");
+            printf("\n1.Nombre de la poliza\n2.Apellido de la poliza\n3.Numero de contacto de la poliza\n4.Correo Electronico de la poliza\n5.Dirrecion del duenho de la        poliza");
             printf("\n6.Ciudad de residencia del duenho de la poliza\n7.Estado de residencia del duenho de la poliza\n8.Pais de residencia del duenho de la poliza");
             printf("\n9.Dirrecion de la poliza asegurada\n10.Ciudad de la poliza Asegurada\n11.Pais de la poliza asegurada\n12.Estado de la poliza asegurada");
             scanf("%d",&mod);
@@ -310,18 +310,243 @@ void datashow(struct policy *p , int *id , int *policyType ){
 
 
 
-/*
-void edit(){
+void edit(struct policy *p , int *id , int *policyType ){
+    int ans;
+    printf("\nIngrese el folio a modificar: ");
+    scanf("%d",&ans);
+    if(policyType[ans] == 0){
+        printf("Este folio No existe!");
+    }
+    else{
+        if(policyType[ans] == 1){
+            int mod =0, edit = 0;
+            printf("\nQue elemento desea modificar? \n");
+            printf("\n1.Nombre de la poliza\n2.Apellido de la poliza\n3.Numero de contacto de la poliza\n4.Correo Electronico de la poliza\n5.Dirrecion del duenho de la        poliza");
+            printf("\n6.Ciudad de residencia del duenho de la poliza\n7.Estado de residencia del duenho de la poliza\n8.Pais de residencia del duenho de la poliza");
+            printf("\n9.Dirrecion de la poliza asegurada\n10.Ciudad de la poliza Asegurada\n11.Pais de la poliza asegurada\n12.Estado de la poliza asegurada");
+            scanf("%d",&mod);
+            switch(mod){
+                case 1:
+                    printf("\nEl nombre bajo el folio es: %s \n", p[ans].policyOwner.name);
 
+                    break;
+                case 2:
+                    printf("\nEl apellido bajo el folio es: %s \n", p[ans].policyOwner.lastname);
+                    break;                
+                case 3:
+                    printf("\nEl telefono de contacto es: %s \n", p[ans].policyOwner.contactPhone);
+                    break;
+                case 4:
+                    printf("\nEl Email de contacto es: %s \n", p[ans].policyOwner.contactMail);
+                    break;
+                case 5:
+                    printf("\nLa dirrecion del contacto es: %s con el numero %s \n", p[ans].policyOwner.addres.street, p[ans].policyOwner.addres.streetNumber);
+                    break;
+                case 6:
+                    printf("\nEn la ciudad: %s \n", p[ans].policyOwner.addres.city);
+                    break;
+                case 7:
+                    printf("\nEn el estado: %s \n", p[ans].policyOwner.addres.state);
+                    break;
+                case 8:
+                    printf("\nEn el pais: %s \n", p[ans].policyOwner.addres.country);
+                    break;
+                
+                case 9:
+                    printf("\nLa dirrecion de la poliza es: %s num. #%s \n", *p[ans].type.Buissnes.addresInsured.street, p[ans].type.Buissnes.addresInsured.streetNumber);
+                    break;
+                
+                case 10:
+                    printf("\nLa ciudad es:: %s \n", p[ans].type.Buissnes.addresInsured.city);
+                    break;
+                case 11:
+                    printf("\nEn el pais: %s \n", p[ans].type.Buissnes.addresInsured.country);
+                    break;
+                case 12:
+                    printf("\nEn el estado: %s \n", p[ans].type.Buissnes.addresInsured.state);
+                    break;
+                default:
+                    break;
+            }
+        }
+        if(policyType[ans] == 2){
+            printf("\nSu poliza de Vivienda: \n");
+            int mod = 0;
+            printf("\nQue elemento desea modificar? \n");
+            printf("\n1.Nombre de la poliza\n2.Apellido de la poliza\n3.Numero de contacto de la poliza\n4.Correo Electronico de la poliza\n5.Dirrecion del duenho de la poliza");
+            printf("\n6.Ciudad de residencia del duenho de la poliza\n7.Estado de residencia del duenho de la poliza\n8.Pais de residencia del duenho de la poliza");
+            printf("\n9.Dirrecion de la poliza asegurada\n10.Ciudad de la poliza Asegurada\n11.Pais de la poliza asegurada\n12.Estado de la poliza asegurada");
+
+            scanf("%d",&mod);
+            switch(mod){
+                case 1:
+                    printf("\nEl nombre bajo el folio es: %s \n", p[ans].policyOwner.name);
+                    break;
+                case 2:
+                    printf("\nEl apellido bajo el folio es: %s \n", p[ans].policyOwner.lastname);
+                    break;                
+                case 3:
+                    printf("\nEl telefono de contacto es: %s \n", p[ans].policyOwner.contactPhone);
+                    break;
+                case 4:
+                    printf("\nEl Email de contacto es: %s \n", p[ans].policyOwner.contactMail);
+                    break;
+                case 5:
+                    printf("\nLa dirrecion del contacto es: %s con el numero %s \n", p[ans].policyOwner.addres.street, p[ans].policyOwner.addres.streetNumber);
+                    break;
+                case 6:
+                    printf("\nEn la ciudad: %s \n", p[ans].policyOwner.addres.city);
+                    break;
+                case 7:
+                    printf("\nEn el estado: %s \n", p[ans].policyOwner.addres.state);
+                    break;
+                case 8:
+                    printf("\nEn el pais: %s \n", p[ans].policyOwner.addres.country);
+                    break;
+                case 9:
+                    printf("\nLa dirrecion de la poliza es: %s num. #%s \n", p[ans].type.Home.addresInsured.street,p[ans].type.Home.addresInsured.streetNumber);
+                    break;
+                case 10:
+                    printf("\nLa ciudad es:: %s \n", p[ans].type.Home.addresInsured.city);
+                    break;
+                case 11:
+                    printf("\nEn el estado: %s \n", p[ans].type.Home.addresInsured.state);
+                    break;
+                case 12:
+                    printf("\nEn el pais: %s \n", p[ans].type.Home.addresInsured.country);
+                    break;
+            }
+        }
+        if (policyType[ans] == 3){
+            printf("\nSu poliza de carro: \n");
+            int mod = 0;
+            printf("\nQue elemento desea modificar? \n");
+            printf("\n1.Nombre de la poliza\n2.Apellido de la poliza\n3.Numero de contacto de la poliza\n4.Correo Electronico de la poliza\n5.Dirrecion del duenho de la poliza");
+            printf("\n6.Ciudad de residencia del duenho de la poliza\n7.Estado de residencia del duenho de la poliza\n8.Pais de residencia del duenho de la poliza");
+            printf("\n9.Modelo del carro\n10.Marca del auto\n11.Numero de serie\n12.Anho del carro\n");
+            scanf(">>%d",&mod);
+            switch(mod){
+                case 1:
+                    printf("\nEl nombre bajo el folio es: %s \n", p[ans].policyOwner.name);
+                    break;
+                case 2:
+                    printf("\nEl apellido bajo el folio es: %s \n", p[ans].policyOwner.lastname);
+                    break;                
+                case 3:
+                    printf("\nEl telefono de contacto es: %s \n", p[ans].policyOwner.contactPhone);
+                    break;
+                case 4:
+                    printf("\nEl Email de contacto es: %s \n", p[ans].policyOwner.contactMail);
+                    break;
+                case 5:
+                    printf("\nLa dirrecion del contacto es: %s con el numero %s \n", p[ans].policyOwner.addres.street, p[ans].policyOwner.addres.streetNumber);
+                    break;
+                case 6:
+                    printf("\nEn la ciudad: %s \n", p[ans].policyOwner.addres.city);
+                    break;
+                case 7:
+                    printf("\nEn el estado: %s \n", p[ans].policyOwner.addres.state);
+                    break;
+                case 8:
+                    printf("\nEn el pais: %s \n", p[ans].policyOwner.addres.country);
+                    break;
+                case 9:
+                    printf("\nEl modelo del carro es: %s", p[ans].type.Car.model);
+                    break;
+                case 10:
+                    printf("\nLa marca del auto es: %s", p[ans].type.Car.brand);
+                    break;
+                case 11:
+                    printf("\nEl Numero de serie del carro: %s", p[ans].type.Car.serialNumber);
+                    break;
+                case 12:
+                    printf("\nEl anho del carro es: %s", p[ans].type.Car.year);
+                    break;
+            }
+  
+        }
+        if(policyType[ans] == 4 ){
+            int mod = 0;
+            printf("\nSu poliza de Vida: \n");
+            printf("\nQue elemento desea modificar? \n");
+            printf("\n9.Nombre del Beficiario\n10.Apellido del beneficiario\n11.Anhos del beneficiario\n12.Numero de contacto del beneficiario");
+            printf("\n13.Correo Electronico del beneficiario\n14.Cumpleanhos del beneficiario\n15.Ciudad de residencia del beneficiario\n16.Pais de residencia del beneficiario");
+            printf("\n17.Estado de residencia del Beficiario\n19.Domicilio de residencia del beneficiario\n");
+            printf("\n1.Nombre de la poliza\n2.Apellido de la poliza\n3.Numero de contacto de la poliza\n4.Correo Electronico de la poliza\n5.Dirrecion del duenho de la poliza");
+            printf("\n6.Ciudad de residencia del duenho de la poliza\n7.Estado de residencia del duenho de la poliza\n8.Pais de residencia del duenho de la poliza");
+            printf("\n9.Modelo del carro\n10.Marca del auto\n11.Numero de serie\n12.Anho del carro\n");
+            scanf(">>%d",&mod);
+            switch(mod){
+                case 1:
+                    printf("\nEl nombre bajo el folio es: %s \n", p[ans].policyOwner.name);
+                    break;
+                case 2:
+                    printf("\nEl apellido bajo el folio es: %s \n", p[ans].policyOwner.lastname);
+                    break;                
+                case 3:
+                    printf("\nEl telefono de contacto es: %s \n", p[ans].policyOwner.contactPhone);
+                    break;
+                case 4:
+                    printf("\nEl Email de contacto es: %s \n", p[ans].policyOwner.contactMail);
+                    break;
+                case 5:
+                    printf("\nLa dirrecion del contacto es: %s con el numero %s \n", p[ans].policyOwner.addres.street, p[ans].policyOwner.addres.streetNumber);
+                    break;
+                case 6:
+                    printf("\nEn la ciudad: %s \n", p[ans].policyOwner.addres.city);
+                    break;
+                case 7:
+                    printf("\nEn el estado: %s \n", p[ans].policyOwner.addres.state);
+                    break;
+                case 8:
+                    printf("\nEn el pais: %s \n", p[ans].policyOwner.addres.country);
+                    break;
+                case 9:
+                    printf("\nNombre del beneficiario: %s", p[ans].type.Life.beneficiary.name);
+                    break;
+                case 10:
+                    printf("\nEl apellido del beneficiario es: %s", p[ans].type.Life.beneficiary.lastname);
+                    break;
+                case 11:
+                    printf("\nAnhos del beneficiario: %d", p[ans].type.Life.beneficiary.age);
+                    break;
+                case 12:
+                    printf("\nNumero de contacto del beneficiario: %s", p[ans].type.Life.beneficiary.contactPhone);
+                    break;
+                case 13:
+                    printf("\nCorreo electronico del beneficiario: %s", p[ans].type.Life.beneficiary.contactMail);
+                    break;
+                case 14:
+                    printf("\nCumpleanhos del beneficiario: %d/%s/%d", p[ans].type.Life.beneficiary.birth.day,p[ans].type.Life.beneficiary.birth.month,p[ans].type.Life.beneficiary.birth.year);
+                    break;
+                case 15:
+                    printf("\nCiudad de residencia del beneficiario: %s", p[ans].type.Life.beneficiary.addres.city);
+                    break;
+                case 16:
+                    printf("\nPais de residencia del beneficiario: %s", p[ans].type.Life.beneficiary.addres.country);
+                    break;
+                case 17:
+                    printf("\nEstado de residencia del beneficiario: %s", p[ans].type.Life.beneficiary.addres.state);
+                    break;
+                case 18:
+                    printf("\nDomicilio de residencia del beneficiario: %s num. #%s", p[ans].type.Life.beneficiary.addres.street,p[ans].type.Life.beneficiary.addres.streetNumber);
+                    break;
+            }
+        }
+    }
+
+
+
+
+    }    
 }
 
+/*
 void search(){
 
 }
 
 */
-
-
 void delete(int *policyType){
     int ans = 0;
     printf("\nDiguite el numero de folio que dese eliminar: ");
@@ -385,14 +610,10 @@ void add(struct policy *p, int *id,int policyType){
     scanf("%s", p[*id].policyOwner.addres.state);
     printf("ciudad");
     scanf("%s", p[*id].policyOwner.addres.city);
-    printf("colonia");
-    scanf("%s", p[*id].policyOwner.addres.suburb);
     printf("calle");
     scanf("%s", p[*id].policyOwner.addres.street);
     printf("numero exterior");
     scanf("%s", p[*id].policyOwner.addres.streetNumber);
-    printf("numero interior");
-    scanf("%s", p[*id].policyOwner.addres.innerNumber);
     printf("introduce el precio de la poliza");
     scanf("%f", &p[*id].genaralData.price);
     printf("introduce el deducible de la poliza");
@@ -419,14 +640,10 @@ void add(struct policy *p, int *id,int policyType){
         scanf("%s", p[*id].policyOwner.addres.state);
         printf("ciudad\n");
         scanf("%s", p[*id].policyOwner.addres.city);
-        printf("colonia\n");
-        scanf("%s", p[*id].policyOwner.addres.suburb);
         printf("calle\n");
         scanf("%s", p[*id].policyOwner.addres.street);
         printf("numero exterior\n");
         scanf("%s", p[*id].policyOwner.addres.streetNumber);
-        printf("numero interior\n");
-        scanf("%s", p[*id].policyOwner.addres.innerNumber);
 
         break;
     case 2:
@@ -437,14 +654,10 @@ void add(struct policy *p, int *id,int policyType){
         scanf("%s", p[*id].policyOwner.addres.state);
         printf("ciudad\n");
         scanf("%s", p[*id].policyOwner.addres.city);
-        printf("colonia\n");
-        scanf("%s", p[*id].policyOwner.addres.suburb);
         printf("calle\n");
         scanf("%s", p[*id].policyOwner.addres.street);
         printf("numero exterior\n");
         scanf("%s", p[*id].policyOwner.addres.streetNumber);
-        printf("numero interior\n");
-        scanf("%s", p[*id].policyOwner.addres.innerNumber);
         break;
     case 3:
     /*
